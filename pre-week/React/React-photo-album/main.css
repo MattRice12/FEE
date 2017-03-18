@@ -1,0 +1,74 @@
+body {
+  margin: 0; }
+
+header h1 {
+  display: flex;
+  justify-content: center;
+  background: gray;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0px; }
+
+.selected {
+  display: block; }
+
+.page-album, .albums {
+  cursor: pointer; }
+
+.albums-img-ul {
+  display: flex;
+  list-style-type: none;
+  align-items: flex-end;
+  justify-content: space-around;
+  margin: 100px 10%; }
+  .albums-img-ul li {
+    justify-content: center;
+    border: 2px solid black; }
+    .albums-img-ul li a {
+      text-decoration: none; }
+  .albums-img-ul img {
+    border-bottom: 2px solid black;
+    display: block; }
+
+.albums-img, .albums img {
+  width: 200px;
+  height: auto; }
+
+.album-pics {
+  display: flex;
+  height: 60vw; }
+
+.al-pics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%; }
+
+nav {
+  align-items: center;
+  height: 100%;
+  width: 100px;
+  background: gray;
+  border: 1px solid black;
+  overflow: hidden; }
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 300px;
+    padding-left: 20px; }
+    nav ul li {
+      margin: 5px 0;
+      padding: 5px 10px;
+      border: 1px solid black;
+      background-color: white;
+      cursor: pointer; }
+      nav ul li a {
+        text-decoration: none;
+        color: blue; }
+
+div .big-pic {
+  width: 500px;
+  border: 2px solid black; }
+
+/*# sourceMappingURL=main.css.map */

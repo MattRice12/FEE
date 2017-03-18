@@ -1,0 +1,29 @@
+.calculator {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  background: lightgray; }
+  .calculator .top {
+    padding: 10px 15px;
+    text-align: right;
+    border: 1px solid black;
+    background: white;
+    border-radius: 5px; }
+  .calculator .bottom .rows div {
+    padding: 5px 0;
+    margin: 15px 0; }
+    .calculator .bottom .rows div span {
+      border: 1px solid black;
+      padding: 5px 15px;
+      background: white;
+      border-radius: 5px;
+      margin: 0; }
+      .calculator .bottom .rows div span:hover {
+        background: #F2F2F2; }
+      .calculator .bottom .rows div span:active {
+        background: lightgray; }
+
+/*# sourceMappingURL=main.css.map */

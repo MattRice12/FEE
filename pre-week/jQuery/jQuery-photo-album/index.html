@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Photo Album</title>
+		<link rel="stylesheet" href="main.css">
+	</head>
+	<body>
+    <div class="page-content selected" id="page1">
+      <header>
+        <h1>My Albums</h1>
+      </header>
+
+      <section>
+        <ul class="albums-img-ul">
+  				<li class="page-album">
+  					<a href="#album1"><img class="albums-img" src="images/bike1.jpg" />Album 1</a>
+  				</li>
+  				<li class="page-album">
+  					<a href="#album2"><img class="albums-img" src="images/food1.jpg" />Album 2</a>
+  				</li>
+  				<li class="page-album">
+  					<a href="#album3"><img class="albums-img" src="images/skyline1.jpg" />Album 3</a>
+  				</li>
+  			</ul>
+      </section>
+    </div>
+
+    <div class="page-content" id="page2">
+      <div class="album-pics">
+    		<nav>
+    			<ul>
+            <li class="home-page">
+              <a href="#page1">All Album</a>
+            </li>
+
+    				<li class="album">
+    					<a href="#album1">Album 1</a>
+    				</li>
+    				<li class="album">
+    					<a href="#album2">Album 2</a>
+    				</li>
+    				<li class="album">
+    					<a href="#album3">Album 3</a>
+    				</li>
+    			</ul>
+    		</nav>
+    		<div class="al-pics">
+    			<section id="album1" class="album-content selected">
+            <img id="img-albums" src="images/bike1.jpg" />
+            <img id="img-albums" src="images/bike2.jpg" />
+            <img id="img-albums" src="images/bike3.jpg" />
+    			</section>
+    			<section id="album2" class="album-content">
+            <img id="img-albums" src="images/food1.jpg" />
+            <img id="img-albums" src="images/food2.jpg" />
+            <img id="img-albums" src="images/food3.jpg" />
+    			</section>
+    			<section id="album3" class="album-content" >
+            <img id="img-albums" src="images/skyline1.jpg" />
+            <img id="img-albums" src="images/skyline2.jpeg" />
+            <img id="img-albums" src="images/skyline3.jpg" />
+    			</section>
+    		</div>
+      </div>
+    </div>
+
+    <div class="page-content" id="page3">
+    </div>
+
+
+		<script
+		  src="https://code.jquery.com/jquery-3.1.1.min.js"
+		  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		  crossorigin="anonymous"></script>
+		<script src="main.js" charset="utf-8"></script>
+	</body>
+</html>
