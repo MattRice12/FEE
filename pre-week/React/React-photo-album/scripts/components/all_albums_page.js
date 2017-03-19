@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Images from '../store';
+import AlbumCover from './album_cover';
 
 class AllAlbums extends React.Component {
   constructor(props) {
@@ -15,20 +16,13 @@ class AllAlbums extends React.Component {
     this.props.changeHomePage(e)
   }
 
+
   render() {
     return (
         <ul className="albums-img-ul">
-          <li className="page-album" onClick={this.clickHandler}>
-            <img src={Images.bikes[0]} className="albums-img" />Album 1
-          </li>
-
-          <li className="page-album" onClick={this.clickHandler}>
-            <img src={Images.foods[0]} className="albums-img" />Album 2
-          </li>
-
-          <li className="page-album" onClick={this.clickHandler}>
-            <img src={Images.skylines[0]} className="albums-img" />Album 3
-          </li>
+          <AlbumCover clickHandler={this.clickHandler} text={"Album 1"} src={Images.bikes[0]} />
+          <AlbumCover clickHandler={this.clickHandler} text={"Album 2"} src={Images.foods[0]} />
+          <AlbumCover clickHandler={this.clickHandler} text={"Album 3"} src={Images.skylines[0]} />
         </ul>
     )
   }

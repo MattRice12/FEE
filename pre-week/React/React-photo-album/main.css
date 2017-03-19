@@ -1,51 +1,75 @@
 body {
-  margin: 0; }
+  margin: 0;
+  background: #5A6892;
+  font-family: 'Bree Serif', serif; }
 
 header {
   width: 100%;
   display: flex;
-  justify-content: center;
-  background: gray;
+  justify-content: flex-start;
+  background: #2C3F5D;
   margin: 0;
-  padding: 20px 0px; }
+  padding-left: 20px; }
   header h1 {
     margin: 0;
-    cursor: pointer; }
+    cursor: pointer;
+    color: white;
+    font-size: 3.5em; }
     header h1:hover {
-      text-decoration: underline; }
+      color: #F8F2DA; }
 
 h2 {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  width: 90vw;
+  color: white; }
 
 .selected {
   display: block; }
 
-.page-album, .albums {
-  cursor: pointer; }
+.page-album, .pictures {
+  cursor: pointer;
+  border-radius: 5px; }
 
 .albums-img-ul {
   display: flex;
   list-style-type: none;
   align-items: flex-end;
   justify-content: space-around;
-  margin: 100px 10%; }
+  margin: 100px 10%;
+  border-radius: 5px; }
   .albums-img-ul li {
     justify-content: center;
-    border: 2px solid black; }
-    .albums-img-ul li a {
-      text-decoration: none; }
-  .albums-img-ul img {
+    background: white;
+    border-radius: 5px; }
+    .albums-img-ul li:hover p {
+      background: #F8F2DA; }
+    .albums-img-ul li p {
+      padding: 5px 0 40px 20px;
+      margin: 0;
+      background: white;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.75); }
+  .albums-img-ul .img-container {
+    height: 200px;
     border-bottom: 2px solid black;
-    display: block; }
+    display: flex;
+    align-items: center; }
 
 .albums-img, .albums img {
   width: 200px;
-  height: auto; }
+  height: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.75); }
+
+.pictures:hover {
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75); }
 
 .album-pics {
   display: flex;
-  height: 89vh;
+  height: 100vh;
   align-content: center; }
   .album-pics nav {
     display: flex;
@@ -54,12 +78,14 @@ h2 {
     .album-pics nav div {
       cursor: pointer;
       margin: 5px 10px;
-      padding: 5px 10px;
-      border: 1px solid black;
+      width: 80px;
+      padding: 5px 0;
       background: white;
-      border-radius: 3px; }
+      border-radius: 3px;
+      text-align: center; }
       .album-pics nav div:hover {
-        background: lightgray; }
+        background: #F8F2DA;
+        box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75); }
 
 .al-pics {
   display: flex;
@@ -71,8 +97,7 @@ nav {
   align-items: center;
   height: 100%;
   width: 100px;
-  background: gray;
-  border: 1px solid black;
+  background: #2C3F5D;
   overflow: hidden; }
   nav ul {
     list-style-type: none;
@@ -91,15 +116,18 @@ nav {
         color: blue; }
 
 .albums {
-  width: 100%; }
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
   .albums img {
-    border: 2px solid black;
     margin: 10px; }
 
 div .big-pic {
   width: auto;
   max-width: 80vw;
   max-height: 80vh;
-  border: 2px solid black; }
+  cursor: default;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75); }
 
 /*# sourceMappingURL=main.css.map */

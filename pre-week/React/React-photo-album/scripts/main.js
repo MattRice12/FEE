@@ -15,12 +15,12 @@ class App extends React.Component {
      }
 
     this.changeHomePage = this.changeHomePage.bind(this)
-    this.handleClick = this.handleClick.bind(this)
+    this.clickHome = this.clickHome.bind(this)
   }
 
   changeHomePage(e) {
     var albumPics
-    var albumName = e.target.innerText || e.target.parentNode.innerText
+    var albumName = e.target.textContent || e.target.parentNode.textContent || e.target.parentNode.parentNode.textContent
 
     if (albumName === 'Album 1') {
       albumPics = Images.bikes
@@ -37,7 +37,7 @@ class App extends React.Component {
     })
   }
 
-  handleClick() {
+  clickHome() {
     this.setState({
       homePage: true,
       album: '',
@@ -48,14 +48,13 @@ class App extends React.Component {
   render() {
     var page;
     if (this.state.homePage) {
-      page = <div><AllAlbums changeHomePage={this.changeHomePage}  /></div>
+      page = <div><header><h1 onClick={this.clickHome}>My Albums</h1></header><AllAlbums changeHomePage={this.changeHomePage}  /></div>
     } else {
-      page = <div><AlbumPage album={this.state.album} pictures={this.state.pictures} /></div>
+      page = <div><AlbumPage album={this.state.album} pictures={this.state.pictures} clickHome={this.clickHome} /></div>
     }
 
     return(
       <div>
-        <header><h1 onClick={this.handleClick}>My Albums</h1></header>
         {page}
       </div>
     )

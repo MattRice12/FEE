@@ -12,7 +12,8 @@ class AlbumPage extends React.Component {
       pictures: this.props.pictures
     }
 
-    this.clickHandler = this.clickHandler.bind(this)
+    this.clickHandler = this.clickHandler.bind(this);
+    this.clickHome = this.clickHome.bind(this);
   }
 
   selectPicture(e) {
@@ -35,7 +36,10 @@ class AlbumPage extends React.Component {
     var albumName = e.target.innerText
     var album;
 
-    document.querySelector('.big-pic').classList.remove('big-pic')
+    var pic = document.querySelector('.big-pic')
+    if (pic) {
+      pic.classList.remove('big-pic')
+    }
 
     if (albumName === 'Album 1') {
       album = Images.bikes
@@ -46,8 +50,13 @@ class AlbumPage extends React.Component {
     }
 
     this.setState({
+      album: albumName,
       pictures: album
     })
+  }
+
+  clickHome() {
+    this.props.clickHome()
   }
 
   render() {
@@ -58,6 +67,7 @@ class AlbumPage extends React.Component {
     return (
       <div className="album-pics">
         <nav>
+          <div className="home" onClick={this.clickHome}>Home</div>
           <div onClick={this.clickHandler}>Album 1</div>
           <div onClick={this.clickHandler}>Album 2</div>
           <div onClick={this.clickHandler}>Album 3</div>
