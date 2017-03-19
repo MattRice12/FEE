@@ -15,6 +15,7 @@ class App extends React.Component {
      }
 
     this.changeHomePage = this.changeHomePage.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   changeHomePage(e) {
@@ -36,9 +37,15 @@ class App extends React.Component {
     })
   }
 
+  handleClick() {
+    this.setState({
+      homePage: true,
+      album: '',
+      pictures: []
+    })
+  }
 
   render() {
-    console.log(this.state.pictures)
     var page;
     if (this.state.homePage) {
       page = <div><AllAlbums changeHomePage={this.changeHomePage}  /></div>
@@ -48,7 +55,7 @@ class App extends React.Component {
 
     return(
       <div>
-        <header><h1>My Albums</h1></header>
+        <header><h1 onClick={this.handleClick}>My Albums</h1></header>
         {page}
       </div>
     )

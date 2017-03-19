@@ -2,23 +2,30 @@ body {
   margin: 0;
 }
 
-header h1 {
+header {
+  width: 100%;
   display: flex;
   justify-content: center;
   background: gray;
-  width: 100%;
   margin: 0;
   padding: 20px 0px;
+  h1 {
+    margin: 0;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-// .pictures {
-//   display: none;
-// }
+h2 {
+  display: flex;
+  justify-content: center;
+}
 
 .selected {
   display: block;
 }
-
 
 .page-album, .albums {
   cursor: pointer;
@@ -50,7 +57,24 @@ header h1 {
 
 .album-pics {
   display: flex;
-  height: 60vw;
+  height: 89vh;
+  align-content: center;
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    div {
+      cursor: pointer;
+      margin: 5px 10px;
+      padding: 5px 10px;
+      border: 1px solid black;
+      background: white;
+      border-radius: 3px;
+      &:hover {
+        background: lightgray
+      }
+    }
+  }
 }
 
 .al-pics {
@@ -87,7 +111,17 @@ nav {
   }
 }
 
+.albums {
+  width: 100%;
+  img {
+    border: 2px solid black;
+    margin: 10px;
+  }
+}
+
 div .big-pic {
-  width: 500px;
+  width: auto;
+  max-width: 80vw;
+  max-height: 80vh;
   border: 2px solid black;
 }

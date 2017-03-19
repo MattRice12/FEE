@@ -12,12 +12,7 @@ class Picture extends React.Component {
   }
 
   clickHandler(e) {
-    var allPics = document.querySelectorAll('.pictures')
-    allPics.forEach(function(pic) {
-      pic.classList.remove('selected');
-    })
-
-    e.target.className += ' selected big-pic'
+    e.target.className += ' big-pic'
 
     this.props.selectPicture(e)
   }
