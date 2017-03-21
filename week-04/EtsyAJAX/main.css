@@ -11,6 +11,15 @@ body {
   border: 1px solid lightgray;
   border-radius: 5px;
   margin: 0 10px; }
+  .nav-bar ul {
+    list-style-type: none;
+    margin: 15px;
+    padding: 0;
+    font-weight: bold;
+    border-bottom: 1px solid lightgray; }
+    .nav-bar ul li {
+      padding: 5px 15px;
+      font-weight: 200; }
 
 .form-obj {
   width: 420px;
@@ -18,17 +27,22 @@ body {
   align-items: center; }
   .form-obj .key-string {
     width: 400px;
-    height: 40px; }
+    height: 40px;
+    font-size: 1.5em; }
   .form-obj .submit-btn {
     width: auto;
     height: 20px;
     margin: 0;
-    padding: 12px;
+    padding: 8px 10px 37px 10px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     background: #34A8C4;
     color: white;
-    font-weight: 600; }
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1.4em; }
 
 .search-images {
   display: flex;
