@@ -3,10 +3,15 @@
 .output-item {
   display: flex;
   justify-content: space-between;
-  max-width: 500px;
+  max-width: 550px;
   border-bottom: 1px dotted lightgray;
+  border: 1px dotted lightgray;
+  padding: 0 5px;
+  .buttons {
+    display: flex;
+  }
   p {
-    width: 400px;
+    // min-width: 300px;
     word-wrap: break-word;
     margin-bottom: 0;
     sub {color: lightgray;}
@@ -31,5 +36,8 @@
     &:hover {
       background: $delete-button-color-hover;
     }
+  }
+  &:nth-child(2n) {
+    background: #FAF9F5;
   }
 }

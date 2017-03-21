@@ -1,10 +1,13 @@
 .output-item {
   display: flex;
   justify-content: space-between;
-  max-width: 500px;
-  border-bottom: 1px dotted lightgray; }
+  max-width: 550px;
+  border-bottom: 1px dotted lightgray;
+  border: 1px dotted lightgray;
+  padding: 0 5px; }
+  .output-item .buttons {
+    display: flex; }
   .output-item p {
-    width: 400px;
     word-wrap: break-word;
     margin-bottom: 0; }
     .output-item p sub {
@@ -26,5 +29,7 @@
     background: #EF3B32; }
     .output-item .todo-delete:hover {
       background: #dd1b11; }
+  .output-item:nth-child(2n) {
+    background: #FAF9F5; }
 
 /*# sourceMappingURL=main.css.map */

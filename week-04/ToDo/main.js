@@ -57,8 +57,10 @@ $(document).ready(function() {
           <p>${item.todo}</p>
           <sub>Status: ${status}</sub>
         </div>
-        <button class="todo-edit" id="${item._id}">${complete}</button>
-        <button class="todo-delete" id="${item._id}">DELETE</button>
+        <div class="buttons">
+          <button class="todo-edit" id="${item._id}">${complete}</button>
+          <button class="todo-delete" id="${item._id}">DELETE</button>
+        </div>
       </div>
     `);
 
@@ -80,14 +82,14 @@ $(document).ready(function() {
   function clickEdit(button, item) {
     $(button).on('click', function(e) {
       editTodo(item);
-      $(this).parent().remove();
+      $(this).parent().parent().remove();
     });
   }
 
   function clickDelete(button, item) {
     $(button).on('click', function(e) {
       deleteTodo(item);
-      $(this).parent().remove()
+      $(this).parent().parent().remove();
     })
   }
 
