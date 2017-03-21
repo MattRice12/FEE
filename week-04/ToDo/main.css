@@ -1,0 +1,19 @@
+.output-item {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  border-bottom: 1px dotted lightgray; }
+  .output-item .todo-delete {
+    height: 25px;
+    margin: 10px;
+    border-radius: 5px;
+    background: #34A8C4;
+    border: 1px solid black;
+    outline: none; }
+    .output-item .todo-delete:hover {
+      background: #29859c; }
+
+.todo-delete {
+  cursor: pointer; }
+
+/*# sourceMappingURL=main.css.map */

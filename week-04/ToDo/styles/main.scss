@@ -1,0 +1,23 @@
+@import 'variables';
+
+.output-item {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  border-bottom: 1px dotted lightgray;
+  .todo-delete {
+    height: 25px;
+    margin: 10px;
+    border-radius: 5px;
+    background: $button-color;
+    border: 1px solid black;;
+    outline: none;
+    &:hover {
+      background: $button-color-hover;
+    }
+  }
+}
+
+.todo-delete {
+  cursor: pointer;
+}
