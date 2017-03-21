@@ -11,29 +11,26 @@ $(document).ready(function() {
     var keyString = $('.key-string').val();
     $(itemBlock).text(`Searching "${keyString}"...`);
 
-    var ajaxFn = function (){
-      var url = `https://api.etsy.com/v2/listings/active.js?api_key=${API_KEY}&keywords=${keyString}&includes=Images,Shop`
-      url = addParams(url, region)
+    var url = `https://api.etsy.com/v2/listings/active.js?api_key=${API_KEY}&keywords=${keyString}&includes=Images,Shop`
+    url = addParams(url, region)
 
-      $.ajax({
-        type: 'GET',
-        url: url,
-        dataType: 'jsonp',
-        success: function(data, status, xhr) {
+    $.ajax({
+      type: 'GET',
+      url: url,
+      dataType: 'jsonp',
+      success: function(data, status, xhr) {
 
-          $(itemBlock).text('')
-          data.results.forEach(function(item) {
-            var image = '<img src="' + item.Images[0].url_170x135 + '" />';
-            var title = '<h4>' + item.title + '</h4>';
-            var thisItem   = '<li><a href="' + item.url + '">' + image + title + '</a></li>';
-            $(itemBlock).append(thisItem);
-          })
-        }
-      });
-    };
-
-    window.setTimeout(ajaxFn, 0);
+        $(itemBlock).text('')
+        data.results.forEach(function(item) {
+          var image = '<img src="' + item.Images[0].url_170x135 + '" />';
+          var title = '<h4>' + item.title + '</h4>';
+          var thisItem   = '<li><a href="' + item.url + '">' + image + title + '</a></li>';
+          $(itemBlock).append(thisItem);
+        })
+      }
+    });
   });
+
 
   $('.region-radio').on('click', function(e) {
     region = e.target.value

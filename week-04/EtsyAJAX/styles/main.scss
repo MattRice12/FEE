@@ -51,8 +51,6 @@ body {
   }
 }
 
-
-
 .search-images {
   display: flex;
   justify-content: flex-start;
@@ -65,7 +63,7 @@ body {
     border: 1px solid lightgray;
     margin: 10px;
     border-radius: 5px;
-    max-height: 290px;
+    max-height: 295px;
     background: white;
     a {
       display: flex;
@@ -79,8 +77,10 @@ body {
         border-top-left-radius: 5px;
       }
       h4 {
-        margin-bottom: 0;
+        margin-left: 5px;
+        margin-bottom: 0px;
         overflow: hidden;
+        line-height: 20px
       }
     }
   }
