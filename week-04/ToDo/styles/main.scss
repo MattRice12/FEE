@@ -5,19 +5,31 @@
   justify-content: space-between;
   max-width: 500px;
   border-bottom: 1px dotted lightgray;
-  .todo-delete {
+  p {
+    width: 400px;
+    word-wrap: break-word;
+    margin-bottom: 0;
+    sub {color: lightgray;}
+  }
+  button {
     height: 25px;
-    margin: 10px;
+    margin: 19px 5px;
     border-radius: 5px;
     background: $button-color;
     border: 1px solid black;;
     outline: none;
+    color: white;
+    font-weight: 600;
+    align-self: flex-start;
+    cursor: pointer;
     &:hover {
       background: $button-color-hover;
     }
   }
-}
-
-.todo-delete {
-  cursor: pointer;
+  .todo-delete {
+    background: $delete-button-color;
+    &:hover {
+      background: $delete-button-color-hover;
+    }
+  }
 }

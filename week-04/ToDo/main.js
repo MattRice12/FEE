@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var output = $('.form-submissions');
   var input = $('form');
-  getTodos();
 
   function getTodos() {
     $.ajax({
@@ -9,42 +8,88 @@ $(document).ready(function() {
       dataType: 'json',
       url: 'http://tiny-za-server.herokuapp.com/collections/mattstodos'
     }).then(function(data, status, xhr) {
-      data.forEach(function(item) {
-        var deleteButton = '<button class="todo-delete" id="' + item._id + '">DELETE</button>'
-        $(output).append('<div class="output-item"><p>' + item.todo + '</p>' + deleteButton + '</div>')
+      data.reverse().forEach(function(item) {
+        populateHtml(item)
       })
     })
   }
 
-  $(input).on('submit', function(e) {
-    e.preventDefault();
-    var keyString = $('.todo-input').val();
+  function editTodo(item) {
+    $.ajax({
+      type: 'PUT',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        status: !item.status
+      }),
+      url: 'http://tiny-za-server.herokuapp.com/collections/mattstodos/' + item._id
+    }).then(function(item, status, xhr) {
+      populateHtml(item);
+    })
+  }
 
+  function postTodo(string) {
     $.ajax({
       type: 'POST',
       contentType: 'application/json',
       url: 'http://tiny-za-server.herokuapp.com/collections/mattstodos',
       data: JSON.stringify({
-        todo: keyString
+        todo: string,
+        status: false
       })
-    }).then(function(data, status, xhr) {
-      var deleteButton = '<button class="todo-delete" id="' + data._id + '">DELETE</button>'
-      $(output).prepend('<div class="output-item"><p>' + data.todo + '</p>' + deleteButton + '</div>')
+    }).then(function(item, status, xhr) {
+      populateHtml(item)
     })
-  })
+  }
 
-
-
-
-  $('.form-submissions').on('click', '.todo-delete', function(e) {
-    var id = $(this).attr('id')
-    console.log($(this).parent().html())
-    console.log($(this).parent())
+  function deleteTodo(item) {
     $.ajax({
       type: 'DELETE',
-      url: 'http://tiny-za-server.herokuapp.com/collections/mattstodos/' + id,
+      url: 'http://tiny-za-server.herokuapp.com/collections/mattstodos/' + item._id,
     })
-    $(this).parent().remove()
+  }
+
+  function populateHtml(item) {
+    var status = (item.status) ? 'Complete' : 'Incomplete';
+    var complete = (item.status) ? 'UNDO' : 'DONE'
+    var elementBlock = $(`
+      <div class="output-item">
+        <div class="item-body-status">
+          <p>${item.todo}</p>
+          <sub>Status: ${status}</sub>
+        </div>
+        <button class="todo-edit" id="${item._id}">${complete}</button>
+        <button class="todo-delete" id="${item._id}">DELETE</button>
+      </div>
+    `);
+
+    $(output).prepend(elementBlock)
+    var editButton = elementBlock.find('.todo-edit')
+    clickEdit(editButton, item)
+
+    var deleteButton = elementBlock.find('.todo-delete')
+    clickDelete(deleteButton, item)
+  }
+
+
+  $(input).on('submit', function(e) {
+    e.preventDefault();
+    var keyString = $('.todo-input').val();
+    postTodo(keyString)
   })
 
+  function clickEdit(button, item) {
+    $(button).on('click', function(e) {
+      editTodo(item);
+      $(this).parent().remove();
+    });
+  }
+
+  function clickDelete(button, item) {
+    $(button).on('click', function(e) {
+      deleteTodo(item);
+      $(this).parent().remove()
+    })
+  }
+
+  getTodos();
 })

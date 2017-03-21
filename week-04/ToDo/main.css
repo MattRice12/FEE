@@ -3,17 +3,28 @@
   justify-content: space-between;
   max-width: 500px;
   border-bottom: 1px dotted lightgray; }
-  .output-item .todo-delete {
+  .output-item p {
+    width: 400px;
+    word-wrap: break-word;
+    margin-bottom: 0; }
+    .output-item p sub {
+      color: lightgray; }
+  .output-item button {
     height: 25px;
-    margin: 10px;
+    margin: 19px 5px;
     border-radius: 5px;
     background: #34A8C4;
     border: 1px solid black;
-    outline: none; }
-    .output-item .todo-delete:hover {
+    outline: none;
+    color: white;
+    font-weight: 600;
+    align-self: flex-start;
+    cursor: pointer; }
+    .output-item button:hover {
       background: #29859c; }
-
-.todo-delete {
-  cursor: pointer; }
+  .output-item .todo-delete {
+    background: #EF3B32; }
+    .output-item .todo-delete:hover {
+      background: #dd1b11; }
 
 /*# sourceMappingURL=main.css.map */
