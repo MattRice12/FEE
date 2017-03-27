@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  height: 400px;
+  max-width: 800px;
+  .character:first-child {
+    align-self: flex-end;
+  }
+}
