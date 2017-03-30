@@ -4,7 +4,7 @@ import Model from './model';
 var view = {
   render: function(view) {
     let $container = $('.container')
-    $container.append(view)
+    $container.html(view)
   },
 
   loginView: function() {
@@ -15,12 +15,11 @@ var view = {
           <input id="username" class="login-input" />
         </form>
       </section>`);
-    let form = view.find('.login-form')
     Model.loginSubmit(view)
     return view
   },
 
-  chatView: function(name) {
+  chatView: function(name, length=0) {
     let view = $(`
       <section class="message-content">
         <div class="chat-output">
@@ -29,10 +28,24 @@ var view = {
           <input class="chat-input" />
         </form>
       </section>`);
+
     let output = view.find('.chat-output')
-    Model.getMessages(output)
+    Model.getMessages(output, name, length)
     Model.messageSubmit(view, name)
     return view;
+  },
+
+  rerenderChat: function(output, messages, name) {
+		output.html('')
+		messages.forEach((message) => {
+			let line = $(`<p><bold>${message.name}: </bold>${message.text} </p>`)
+			if (name === message.name) {
+				line.append('<button class="del">X</button>')
+				let delButton = line.find('.del');
+				Model.deleteHandler(message, delButton, line);
+			}
+			output.prepend(line)
+		})
   }
 }
 

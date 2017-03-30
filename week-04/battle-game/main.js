@@ -8,28 +8,24 @@ $(document).ready(function() {
   // $container.append(renderPlayer(pokeTwo))
 
   function createPokemon(name, player) {
-    // var poke;
-    $poke = $.ajax({
+    var poke;
+    $.ajax({
       type: 'GET',
       url: `http://pokeapi.co/api/v2/pokemon/${name}`,
       dataType: 'json'
-    }).done(function(data) {
+    }).then((data) => {
       return data
+      var pokeMove;
+      $.ajax({
+        type: 'GET',
+        url: pokemon.moves[0].move.url,
+        dataType: 'json'
+      }).then((move, status, xhr) => {
+        poke = new Character(pokemon, move, player)
+        console.log(poke)
+      })
     })
-      // var pokeMove;
-      // $.ajax({
-      //   type: 'GET',
-      //   url: pokemon.moves[0].move.url,
-      //   dataType: 'jsonp',
-      //   success: function(move, status, xhr) {
-      //     console.log(move)
-      //     pokeMove = move
-      //   }
-      // })
-      // pokemon.move = pokeMove
-    // })
-    console.log($poke)
-    return $poke
+    console.log(poke)
   }
 
   // new Character(pokemon, move, player)
@@ -47,6 +43,8 @@ $(document).ready(function() {
     } else {
       this.image = pokemon.sprites.front_default
     }
+
+    return this
   }
 
   Character.prototype.attack = function(pokeOne, pokeTwo) {

@@ -1,0 +1,6 @@
+export default {
+  FORM_SUBMIT:    "FORM_SUBMIT",
+  SHOW_FORM:      "SHOW_FORM",
+  HELLO_WORLD:    "HELLO_WORLD",
+  GOODBYE_WORLD:  "GOODBYE_WORLD"
+}

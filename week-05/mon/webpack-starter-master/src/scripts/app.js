@@ -2,10 +2,12 @@ import View from './view';
 import Model from './model';
 
 export default function app() {
+	// const usersUrl = `http://tiny-za-server.herokuapp.com/collections/mattschatappusers`
+	// const messagesUrl = `http://tiny-za-server.herokuapp.com/collections/mattschatappmessages`
+	// deleteUsers();
+	// deleteMessages();
 	View.render(View.loginView())
 
-	// deleteUsers()
-	// deleteMessages();
 	function deleteUsers() {
 		$.ajax({
 			type: 'GET',

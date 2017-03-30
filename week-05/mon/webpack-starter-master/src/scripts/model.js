@@ -2,13 +2,13 @@ import App from './app';
 import View from './view';
 // store login info in local storage
 
-var model = {
+const model = {
 	usersUrl: `http://tiny-za-server.herokuapp.com/collections/mattschatappusers`,
 	messagesUrl: `http://tiny-za-server.herokuapp.com/collections/mattschatappmessages`,
 
-	// CreatePerson: function(name) {
-	// 	this.name = name
-	// },
+	CreatePerson: function(name) {
+		this.name = name
+	},
 
 	loginSubmit: function(view) {
 		let form = $(view).find('form')
@@ -29,22 +29,24 @@ var model = {
 			}),
 			contentType: 'application/json'
 		}).then((data) => {
-			// new CreatePerson(data.name)
+			var person = new this.CreatePerson(data.name)
 			view.hide();
-			View.render(View.chatView(data.name))
+			View.render(View.chatView(person.name))
 		});
 	},
 
-	getMessages: function(output) {
+	getMessages: function(output, name, length) {
 		$.ajax({
 			type: 'GET',
 			url: this.messagesUrl,
 			dataType: 'json'
 		}).then((messages) => {
-			messages.forEach((message) => {
-				output.prepend(`<p><bold>${message.name}: </bold>${message.text}</p>`)
-			})
-			// setTimeout(View.render(View.chatView(message.name)), 2000)
+			if (messages.length !== length) {
+				View.rerenderChat(output, messages, name)
+			}
+			setTimeout(() => {
+				this.getMessages(output, name, messages.length)
+			}, 2000);
 		})
 	},
 
@@ -68,10 +70,28 @@ var model = {
 			}),
 			contentType: 'application/json'
 		}).then((message) => {
-			output.append(`<p><bold>${message.name}: </bold>${message.text}</p>`)
-			view.find('.chat-input').val('')
+			let line = $(`<p><bold>${message.name}: </bold>${message.text} <button class="del">X</button></p>`)
+			let delButton = line.find('.del');
+			this.deleteHandler(message, delButton, line);
+			output.append(line)
+			view.find('.chat-input').val('');
 		})
 	},
+
+	deleteHandler: function(message, button, line) {
+		$(button).on('click', () => {
+			this.deleteMessage(message, line)
+		})
+	},
+
+	deleteMessage: function(message, line) {
+		$.ajax({
+			type: 'DELETE',
+			url: `${this.messagesUrl}/${message._id}`
+		}).then(() => {
+			line.hide();
+		})
+	}
 }
 
 export default model
