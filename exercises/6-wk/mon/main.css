@@ -1,0 +1,91 @@
+body,
+html {
+  width: 960px;
+  min-height: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: linear-gradient(135deg, #34a4ca 0%, #59d7dd 28%, #a8f2f0 59%, #d0f8ef 84%, #d6f6e1 100%) repeat scroll 0 0 rgba(0,0,0,0);
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  top: -150px;
+  z-index: 1;
+}
+.hexagon {
+  position: relative;
+  display: inline-block;
+  margin: 0px 8px;
+  margin-top: 4px;
+  background-color: rgba(255,255,255,0.05);
+}
+.hexagon,
+.hexagon::before,
+.hexagon::after {
+  width: 28px;
+  height: 50px;
+  border: 1px solid #fff;
+}
+.hexagon::before {
+  background-color: inherit;
+  content: "";
+  position: absolute;
+  left: 0;
+  transform: rotate(-60deg);
+}
+.hexagon::after {
+  background-color: inherit;
+  content: "";
+  position: absolute;
+  left: 0;
+  transform: rotate(60deg);
+}
+.hexagon:nth-child(even) {
+  top: -29px;
+}
+
+.form-page {
+  width: 300px;
+  border: 2px solid #3AACCD;
+  border-radius: 5px;
+  padding: 20px;
+  background: #61DAFB;
+  position: relative;
+  top: 300px;
+  left: 300px;
+  z-index: 1000;
+}
+
+.form {
+  margin: 0 5%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 200px;
+}
+
+.input-block {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin: 0;
+}
+
+button {
+  background: white;
+  border: 1px solid gray;
+  border-radius: 3px;
+  width: 80px;
+  height: 25px;
+  align-self: flex-end;
+}
+
+button:hover {
+  background: #B0F3EF;
+}
+
+button:active {
+  background: #3AACCD;
+}
