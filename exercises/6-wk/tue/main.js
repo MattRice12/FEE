@@ -21,7 +21,7 @@
 const Maybe = function (value) {
   const val = value;
 
-  this.withDefault = function (fallback) {
+  this.withDefault = function  (fallback) {
     if (val === null || val === undefined) {
       return fallback;
     } else {
