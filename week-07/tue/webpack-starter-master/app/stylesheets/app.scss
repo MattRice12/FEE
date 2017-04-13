@@ -15,7 +15,7 @@ html {
     }
 }
 
-.popup-container {
+.modal-backdrop {
   position: absolute;
   top: 0;
   height: 100vh;
@@ -25,7 +25,7 @@ html {
   z-index: 2;
 }
 
-.popup {
+.modal {
   position: absolute;
   top: 30%;
   left: 30%;
@@ -45,11 +45,11 @@ html {
 @keyframes neon1 {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px black, 0 0 70px black, 0 0 80px black, 0 0 100px black, 0 0 150px black;
-    border: 5px solid black;;
+    // border: 10px solid black;;
   }
 
   to {
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
-    border: 5px solid #FF1177;
+    // border: 10px solid #FF1177;
   }
 }

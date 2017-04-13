@@ -8,7 +8,7 @@ export default function () {
       <h1>Your Cart:</h1>
       <ul class="cart-items"></ul>
     </div>
-    `)
+  `)
 
   let cartItems = $(html).find('.cart-items');
   let totalPrice = 0;
@@ -24,7 +24,6 @@ export default function () {
     })
     totalPrice *= 1.08
     $(html).append(`<p>Total: $${parseFloat(totalPrice).toFixed(2)}</p>`)
-
   })
 
   return html;

@@ -6,7 +6,7 @@ export default function (store) {
   let html = $(`
     <div>
       <button class="cart-button">Go To Cart</button>
-      <h1>Your Cart</h1>
+      <h1>Menu</h1>
       <div class="categories">
       </div>
     </div>

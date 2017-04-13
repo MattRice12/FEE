@@ -52,19 +52,7 @@ export default function app() {
     $('#app').html(state.view(store));
   }
 
+  //subscribe makes render run after every dispatch
   store.subscribe(render);
   store.dispatch({ type: 'START' })
-
-  // $.ajax({
-  //   type: 'GET',
-  //   dataType: 'json',
-  //   url: URL
-  // }).then((data) => {
-  //   data.forEach((item) => {
-  //     $.ajax({
-  //       type: 'DELETE',
-  //       url: URL + item._id
-  //     })
-  //   })
-  // })
 }
