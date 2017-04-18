@@ -17,7 +17,20 @@ export default function AppReducer(state, action) {
     case "ADD_ITEM":
       var total = state.total;
       var newTotal = total + action.item.price;
-      return Object.assign({}, state, { total: newTotal });
+      var myItems = state.cartItems.slice();
+      myItems.push(action.item);
+      return Object.assign({}, state, {
+        cartItems: myItems,
+        total: newTotal
+      });
+
+    case "REMOVE_ITEM":
+      var total = state.total;
+      var newTotal = total - action.item.price;
+      var myItems = state.cartItems.slice();
+      var deletedItem = myItems.indexOf(action.item);
+      myItems.splice(deletedItem, 1);
+      return Object.assign({}, state, { cartItems: myItems, total: newTotal });
   }
   return state;
 }

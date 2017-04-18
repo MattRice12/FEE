@@ -1,30 +1,30 @@
 import React from "react";
 import { connect } from "react-redux";
 import Item from "./item.js";
-import addItem from "../actions/add_item.js";
+import removeItem from "../actions/remove_item.js";
 
-const AllItems = ({ items, total, history, dispatch, match }) => {
+const CartItems = ({ cartItems, total, history, dispatch, match }) => {
   const onClick = id =>
     () => {
       history.push("/item/" + id);
     };
 
-  const onAdd = item =>
+  const onRemove = item =>
     () => {
-      dispatch(addItem(item));
+      dispatch(removeItem(item));
     };
 
   return (
     <div>
       <div>Total: {total}</div>
       <ul className="item-ul">
-        {items.map((item, index) => {
+        {cartItems.map((item, index) => {
           return (
             <Item
               key={index}
               item={item}
               onClick={onClick(item.id)}
-              onAdd={onAdd(item)}
+              onRemove={onRemove(item)}
               url={match}
             />
           );
@@ -34,4 +34,4 @@ const AllItems = ({ items, total, history, dispatch, match }) => {
   );
 };
 
-export default connect(state => state)(AllItems);
+export default connect(state => state)(CartItems);

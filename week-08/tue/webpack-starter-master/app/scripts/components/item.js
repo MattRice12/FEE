@@ -1,17 +1,26 @@
 import React from "react";
-import { connect } from "react-redux";
 
-const Item = ({ items, match }) => {
-  let currentItem = items.filter(item => {
-    return String(item.id) == match.params.id;
-  })[0];
+const Item = ({ item, id, onClick, onAdd, onRemove, url }) => {
+  let button = "";
+  if (url.path === "/all_items") {
+    button = <button className="item-add" onClick={onAdd}>Add to Order</button>;
+  } else if (url.path === "/cart_items") {
+    button = <button className="item-add" onClick={onRemove}>Remove</button>;
+  }
 
   return (
-    <div>
-      <h1> {currentItem.item} </h1>
-      <h3> ${currentItem.price} </h3>
-    </div>
+    <li className="item-li">
+      <div className="item-name-price">
+        <span onClick={onClick}>
+          {item.item}
+        </span>
+        <span>${item.price}</span>
+      </div>
+      <div>
+        {button}
+      </div>
+    </li>
   );
 };
 
-export default connect(state => state)(Item);
+export default Item;
