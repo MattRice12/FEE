@@ -16,7 +16,6 @@ class AllSeries extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <main>
         <h3>Series</h3>

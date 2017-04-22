@@ -12,7 +12,7 @@ class Series extends React.Component {
   clickHandler(book) {
     this.props.dispatch(goToBook(book));
     this.props.history.push(
-      "/series/" + this.props.currentSeries.id + "/books/" + book.id
+      "/series/" + this.props.match.params.id + "/books/" + book.id
     );
   }
 

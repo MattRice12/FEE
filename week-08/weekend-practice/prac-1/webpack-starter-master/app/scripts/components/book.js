@@ -3,19 +3,20 @@ import { connect } from "react-redux";
 
 class Book extends React.Component {
   render() {
-    this.props.match;
-    let paramId = this.props.match.params.id;
+    let paramId = this.props.location.pathname[
+      this.props.location.pathname.length - 1
+    ];
     let urlSeries = this.props.bookSeries.filter(series => {
       return series.id === Number(this.props.match.params.id);
     })[0];
     let urlBook = urlSeries.books.filter(book => {
-      return book.id === Number(this.props.match.params.id);
+      return book.id === Number(paramId);
     })[0];
-    let currentBook = this.props.currentBook || urlSeries;
+    let currentBook = this.props.currentBook || urlBook;
 
     return (
       <div>
-        {currentBook.title}
+        {currentBook.title + ": " + currentBook.pages + " pages."}
       </div>
     );
   }
