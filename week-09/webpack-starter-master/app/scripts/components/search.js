@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import searchBand from "../actions/search_band.js";
 import voteBand from "../actions/vote_band.js";
 import ArtistBlock from "./artist_block.js";
+import SearchForm from "./search_form.js";
 
 class Search extends React.Component {
   constructor(props) {
@@ -43,14 +44,7 @@ class Search extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <form className="col s12">
-            <div className="input-field col s12">
-              <input id="search-input" placeholder="Search" />
-              <button className="btn" onClick={this.searchHandler}>
-                Submit
-              </button>
-            </div>
-          </form>
+          <SearchForm onClick={this.searchHandler} />
         </div>
         <div className="row">
           <div className="col s12">
