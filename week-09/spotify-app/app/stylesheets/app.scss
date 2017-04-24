@@ -1,0 +1,85 @@
+.nav {
+  list-style-type: none;
+  color: black;
+  font-size: 1.5em;
+  ul {
+    display: flex;
+    li {
+      margin: 0 10px;
+      a {
+        color: black;
+        font-size: 1em;
+        color: white;
+        text-shadow: 0px -1px #A1A1A1;
+        height: 100%;
+        i {padding-top: 5px;}
+      }
+    }
+  }
+}
+
+.show-all-artists {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.artist-block {
+  text-align: center;
+  .card-card {
+    max-height: 60vh;
+    min-height: 60vh;
+    .card-content {
+      max-height: 60vh;
+      div {height: 53vh;}
+      i {width: 100%;}
+    }
+  }
+}
+
+.card-content div {
+  display: flex;
+  justify-content: center;
+  align-content: space-between;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+}
+
+.voted {
+  background: pink !important;
+}
+
+.all-votes {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.vote-block {
+  margin: 10px;
+  text-align: center;
+  .card-card {
+    min-height: 40vh;
+    min-width: 30vw;
+    max-width: 30vw;
+    .card-content {
+      flex-basis: 100%;
+      div {height: 33vh;}
+    }
+  }
+}
+
+.img-block {
+  position: relative;
+  max-height: 200px;
+  padding: 5%;
+  width: 100%;
+  overflow: hidden;
+  div {
+    overflow:hidden;
+  }
+  .med-img, .small-img {
+    height: 100%;
+    width: auto;
+  }
+}
