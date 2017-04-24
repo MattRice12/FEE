@@ -11,10 +11,10 @@ import Votes from "./components/votes.js";
 const Nav = () => (
   <nav className="nav">
     <div className="row">
-      <div className="col l9 m6 s4">
+      <div className="col l9 m8 s6">
         <ul><li role="navigation"><Link to="/">Matt's App</Link></li></ul>
       </div>
-      <div className="col l3 m6 s8">
+      <div className="col l3 m4 s6">
         <ul>
           <li role="navigation">
             <Link to="/search"><Icon>search</Icon></Link>

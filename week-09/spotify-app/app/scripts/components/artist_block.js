@@ -15,7 +15,7 @@ class ArtistBlock extends React.Component {
     }
 
     return (
-      <Col l={4} m={6} s={12} className="artist-block">
+      <Col l={4} m={6} s={12} className="artist-block align-left">
         <Card className="darken-1 card-card">
           <h4 tabIndex="0">{this.props.band.name}</h4>
           <div className="img-block">
