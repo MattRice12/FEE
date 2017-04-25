@@ -25,11 +25,11 @@
 .artist-block {
   text-align: center;
   .card-card {
-    max-height: 60vh;
-    min-height: 60vh;
+    max-height: 30em;
+    min-height: 30em;
     .card-content {
-      max-height: 60vh;
-      div {height: 53vh;}
+      max-height: 30em;
+      div {height: 25em;}
       i {width: 100%;}
     }
   }
@@ -65,7 +65,7 @@
 
 .img-block {
   position: relative;
-  max-height: 200px;
+  max-height: 15em;
   padding: 5%;
   width: 100%;
   overflow: hidden;
@@ -81,4 +81,8 @@
 .input-field input[type=text]:focus {
   border-bottom: 1px solid #ec407a;
   box-shadow: 0 1px 0 0 #ec407a;
+}
+
+.voted-text {
+  height: 1em;
 }
