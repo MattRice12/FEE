@@ -43,10 +43,6 @@
   flex-basis: 100%;
 }
 
-.voted {
-  background: pink !important;
-}
-
 .all-votes {
   display: flex;
   justify-content: flex-start;
@@ -80,4 +76,9 @@
     height: 100%;
     width: auto;
   }
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #ec407a;
+  box-shadow: 0 1px 0 0 #ec407a;
 }

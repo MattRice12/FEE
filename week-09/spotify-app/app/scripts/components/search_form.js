@@ -16,12 +16,17 @@ class SearchForm extends React.Component {
       <form className="col s12">
         <div className="input-field col s12">
           <input
+            type="text"
             ref="searchTerm"
             onChange={this.handleChange}
             id="search-input"
             placeholder="Search"
           />
-          <Button waves="light" onClick={this.props.onClick}>
+          <Button
+            className="blue accent-1"
+            waves="light"
+            onClick={this.props.onClick}
+          >
             Submit
           </Button>
         </div>

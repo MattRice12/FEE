@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import searchBand from "../actions/search_band.js";
 import voteBand from "../actions/vote_band.js";
-import ArtistBlock from "./artist_block.js";
 import SearchForm from "./search_form.js";
+import AllArtists from "./all_artists.js";
+import deleteVote from "../actions/delete_vote.js";
 
 class Search extends React.Component {
   constructor(props) {
@@ -24,7 +25,11 @@ class Search extends React.Component {
   }
 
   handleVote(band) {
-    this.props.dispatch(voteBand(band));
+    if (this.props.votes.indexOf(band) > -1) {
+      this.props.dispatch(deleteVote(band));
+    } else {
+      this.props.dispatch(voteBand(band));
+    }
   }
 
   changeInput(term) {
@@ -35,18 +40,11 @@ class Search extends React.Component {
 
   render() {
     let displayBands = (
-      <div className="show-all-artists">
-        {this.props.bands.map((band, index) => {
-          return (
-            <ArtistBlock
-              key={index}
-              band={band}
-              votes={this.props.votes}
-              handleVote={() => this.handleVote(band)}
-            />
-          );
-        })}
-      </div>
+      <AllArtists
+        bands={this.props.bands}
+        votes={this.props.votes}
+        handleVote={this.handleVote}
+      />
     );
     if (this.props.searching) {
       displayBands = <div>Searching...</div>;

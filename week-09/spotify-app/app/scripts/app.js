@@ -9,7 +9,7 @@ import Search from "./components/search.js";
 import Votes from "./components/votes.js";
 
 const Nav = () => (
-  <nav className="nav">
+  <nav className="nav blue darken-2">
     <div className="row">
       <div className="col l9 m8 s6">
         <ul><li role="navigation"><Link to="/">Matt's App</Link></li></ul>

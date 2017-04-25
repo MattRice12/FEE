@@ -21,6 +21,12 @@ export default function AppReducer(state, action) {
       var allVotes = state.votes.slice();
       allVotes.push(action.band);
       return Object.assign({}, state, { votes: allVotes });
+
+    case "DELETE_VOTE":
+      var allVotes = state.votes.slice();
+      var bandIndex = allVotes.indexOf(action.band);
+      allVotes.splice(bandIndex, 1);
+      return Object.assign({}, state, { votes: allVotes });
   }
 
   console.log("Unhandled State!");

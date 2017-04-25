@@ -7,11 +7,14 @@ class ArtistBlock extends React.Component {
   }
 
   render() {
-    let voted;
+    let voted = "blue";
     let votedText;
     if (this.props.votes.indexOf(this.props.band) >= 0) {
-      voted = " voted";
+      voted = "pink lighten-1";
       votedText = "Voted for " + this.props.band.name;
+    } else {
+      voted = "blue";
+      votedText = "";
     }
 
     return (
@@ -21,7 +24,7 @@ class ArtistBlock extends React.Component {
           <div className="img-block">
             <img className="med-img" src={this.props.band.images[1].url} />
           </div>
-          <button className={`btn + ${voted}`} onClick={this.props.handleVote}>
+          <button className={`btn ${voted}`} onClick={this.props.handleVote}>
             Vote
           </button>
           <i role="alert">
