@@ -8,15 +8,8 @@ class ArtistBlock extends React.Component {
 
   render() {
     let voted = "blue";
-    let votedText;
-    if (this.props.votes.indexOf(this.props.band) >= 0) {
-      voted = "pink lighten-1";
-      votedText = "Voted for " + this.props.band.name;
-    } else {
-      voted = "blue";
-      votedText = "";
-    }
-
+    let votedText = "";
+    let bandName = this.props.band.name;
     let bandImage = "";
     if (this.props.band.images.length >= 2) {
       bandImage = this.props.band.images[1].url;
@@ -24,17 +17,26 @@ class ArtistBlock extends React.Component {
       bandImage = "http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg";
     }
 
+    this.props.votes.forEach(thisVote => {
+      let namesMatch = thisVote.name === bandName;
+      let imgMatch = thisVote.bandImgMed === bandImage;
+      if (namesMatch && imgMatch) {
+        voted = "pink lighten-1";
+        votedText = "Voted for " + this.props.band.name;
+      }
+    });
+
     return (
       <Col l={4} m={6} s={12} className="artist-block align-left">
         <Card className="darken-1 card-card">
-          <h4 tabIndex="0">{this.props.band.name}</h4>
+          <h4 tabIndex="0" className="truncate">{this.props.band.name}</h4>
           <div className="img-block">
             <img className="med-img" src={bandImage} />
           </div>
           <button className={`btn ${voted}`} onClick={this.props.handleVote}>
             Vote
           </button>
-          <i className="voted-text" role="alert">
+          <i className="voted-text truncate" role="alert">
             {votedText}
           </i>
         </Card>

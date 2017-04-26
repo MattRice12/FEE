@@ -32,7 +32,7 @@ export default function app() {
       <Router>
         <div>
           <Nav />
-          <Route exact path="/" component={AppRoot} />
+          <Route path="/" component={AppRoot} />
           <Route exact path="/search" component={Search} />
           <Route exact path="/votes" component={Votes} />
         </div>

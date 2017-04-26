@@ -54,11 +54,9 @@
   text-align: center;
   .card-card {
     min-height: 40vh;
-    min-width: 30vw;
-    max-width: 30vw;
+    min-width: 25em;
+    max-width: 25em;
     .card-content {
-      flex-basis: 100%;
-      div {height: 33vh;}
     }
   }
 }
@@ -66,7 +64,7 @@
 .img-block {
   position: relative;
   max-height: 15em;
-  padding: 5%;
+  padding: 3%;
   width: 100%;
   overflow: hidden;
   div {
@@ -84,5 +82,5 @@
 }
 
 .voted-text {
-  height: 1em;
+  height: 2em;
 }

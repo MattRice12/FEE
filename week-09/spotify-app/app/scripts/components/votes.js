@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import VoteBlock from "./vote_block.js";
+import getVotes from "../actions/get_votes.js";
 
 class Votes extends React.Component {
   constructor(props) {

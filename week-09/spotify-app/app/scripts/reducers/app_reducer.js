@@ -19,10 +19,9 @@ export default function AppReducer(state, action) {
 
     case "VOTE_BAND":
       var allVotes = state.votes.slice();
-      if (allVotes.indexOf(action.band) > -1) {
-        return Object.assign({}, state, { votes: allVotes });
+      if (allVotes.indexOf(action.band) <= -1) {
+        allVotes.push(action.band);
       }
-      allVotes.push(action.band);
       return Object.assign({}, state, { votes: allVotes });
 
     case "DELETE_VOTE":
