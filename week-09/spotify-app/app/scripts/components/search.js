@@ -26,35 +26,17 @@ class Search extends React.Component {
   }
 
   handleVote(band) {
-    // THIS IS WHAT I'M TRYING TO GET WORKING. VOTES VOTES VOTES AND SERVER
-
-    let bandName = band.name;
-    let bandImage = "";
-    if (band.images.length >= 2) {
-      bandImage = band.images[1].url;
-    } else {
-      bandImage = "http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg";
-    }
-
-    if (this.props.votes.length <= 0) {
-      this.props.dispatch(voteBand(band));
-    }
-
-    this.props.votes.forEach(thisVote => {
-      var namesMatch = thisVote.name === bandName;
-      var imgMatch = thisVote.bandImgMed === bandImage;
-      if (namesMatch && imgMatch) {
-        this.props.dispatch(deleteVote(band));
-      } else {
-        this.props.dispatch(voteBand(band));
-      }
+    let allIds = this.props.votes.map(vote => {
+      return vote._id;
     });
 
-    // if (this.props.votes.indexOf(band) > -1) {
-    //   this.props.dispatch(deleteVote(band));
-    // } else {
-    //   this.props.dispatch(voteBand(band));
-    // }
+    if (allIds.indexOf(band.id) >= 0) {
+      var bandId = allIds.indexOf(band.id);
+      var currentBand = this.props.votes[bandId];
+      this.props.dispatch(deleteVote(currentBand));
+    } else {
+      this.props.dispatch(voteBand(band));
+    }
   }
 
   changeInput(term) {

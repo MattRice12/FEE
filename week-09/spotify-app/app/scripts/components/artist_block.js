@@ -9,27 +9,24 @@ class ArtistBlock extends React.Component {
   render() {
     let voted = "blue";
     let votedText = "";
-    let bandName = this.props.band.name;
-    let bandImage = "";
-    if (this.props.band.images.length >= 2) {
-      bandImage = this.props.band.images[1].url;
-    } else {
-      bandImage = "http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg";
-    }
+    let band = this.props.band;
+    let bandImage = band.images.length >= 2
+      ? band.images[1].url
+      : "http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg";
 
-    this.props.votes.forEach(thisVote => {
-      let namesMatch = thisVote.name === bandName;
-      let imgMatch = thisVote.bandImgMed === bandImage;
-      if (namesMatch && imgMatch) {
-        voted = "pink lighten-1";
-        votedText = "Voted for " + this.props.band.name;
-      }
+    let allIds = this.props.votes.map(vote => {
+      return vote._id;
     });
+
+    if (allIds.indexOf(band.id) >= 0) {
+      voted = "pink lighten-1";
+      votedText = "Voted for " + band.name;
+    }
 
     return (
       <Col l={4} m={6} s={12} className="artist-block align-left">
         <Card className="darken-1 card-card">
-          <h4 tabIndex="0" className="truncate">{this.props.band.name}</h4>
+          <h4 tabIndex="0" className="truncate">{band.name}</h4>
           <div className="img-block">
             <img className="med-img" src={bandImage} />
           </div>

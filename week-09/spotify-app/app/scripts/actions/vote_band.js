@@ -2,6 +2,8 @@ import api from "../api.js";
 
 export default function voteBand(band) {
   return function(dispatch) {
+    console.log(band);
+
     let bandImgMed = "http://www.wellesleysocietyofartists.org/wp-content/uploads/2015/11/image-not-found.jpg";
     if (band.images.length > 1) {
       bandImgMed = band.images[1].url;
@@ -17,6 +19,7 @@ export default function voteBand(band) {
         "application-type": "REST"
       },
       data: JSON.stringify({
+        _id: band.id,
         name: band.name,
         bandImgMed: bandImgMed
       })
