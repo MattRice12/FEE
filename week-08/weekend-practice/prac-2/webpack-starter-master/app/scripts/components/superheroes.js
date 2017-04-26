@@ -41,14 +41,21 @@ class Superheroes extends React.Component {
     let newHeroForm = "";
     if (this.state.newHero) {
       newHeroForm = (
-        <form onSubmit={this.formSubmit}>
-          <label htmlFor="name">Superhero</label>
-          <input ref="heroName" id="name" />
-          <br />
-          <label htmlFor="power">Power</label>
-          <input ref="heroPower" id="power" />
-          <br />
-          <button type="submit">Submit</button>
+        <form onSubmit={this.formSubmit} className="input-field">
+          <div className="input-field">
+            <input
+              ref="heroName"
+              id="name"
+              type="text"
+              placeholder="Superhero"
+            />
+            <br />
+            <input ref="heroPower" id="power" type="text" placeholder="Power" />
+            <br />
+            <button className="btn deep-purple darken-4" type="submit">
+              Submit
+            </button>
+          </div>
         </form>
       );
     } else {
@@ -62,16 +69,19 @@ class Superheroes extends React.Component {
 
     return (
       <div>
-        <button onClick={this.addHero}>Add New Hero</button>
+        <button className="btn" onClick={this.addHero}>
+          Add New Hero
+        </button>
         {newHeroForm}
-        <div className="all-heroes">
+        <div className="row">
           {loading}
           {this.props.superheroes.map(hero => {
             return (
               <Hero
-                key={hero._id}
+                key={hero.id}
                 name={hero.name}
                 power={hero.power}
+                img={hero.img}
                 onClick={() => this.clickHandler(hero)}
               />
             );

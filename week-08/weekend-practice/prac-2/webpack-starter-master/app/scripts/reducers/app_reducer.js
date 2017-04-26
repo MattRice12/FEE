@@ -5,7 +5,7 @@ import getHeroes from "../actions/get_heroes.js";
 export default function AppReducer(state, action) {
   if (state === undefined) {
     return {
-      superheroes: [],
+      superheroes: superheroes,
       loading: false,
       currentHero: {},
       prevHero: {},
@@ -41,8 +41,9 @@ export default function AppReducer(state, action) {
       var prevHeroIndex = heroIndex <= 0
         ? state.superheroes.length - 1
         : heroIndex - 1;
+
       var nextHeroIndex = heroIndex >= state.superheroes.length - 1
-        ? 1
+        ? 0
         : heroIndex + 1;
 
       var prevHero = state.superheroes[prevHeroIndex];

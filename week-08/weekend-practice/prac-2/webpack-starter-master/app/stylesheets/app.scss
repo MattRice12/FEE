@@ -1,7 +1,5 @@
 .all-heroes {
   display: flex;
-  flex-basis: 50%;
-  flex-direction: column;
   flex-wrap: wrap;
   height: 80vh;
 }
@@ -21,4 +19,25 @@
     box-shadow: 3px 3px 5px #999;
     transition: .1s;
   }
+}
+
+.black-text {
+  color: black;
+}
+
+.hero-card {
+  width: 15em;
+  cursor: pointer;
+  .card-image {
+    overflow: hidden;
+    img {
+      overflow: hidden;
+      height: 15em;
+    }
+  }
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #311b92;
+  box-shadow: 0 1px 0 0 #311b92;
 }

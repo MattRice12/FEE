@@ -68,6 +68,7 @@ var config = {
       jQuery: "jquery"
     })
   ],
+
   externals: {
     cheerio: "window"
   }

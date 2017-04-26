@@ -10,18 +10,20 @@ class Nav extends React.Component {
   }
 
   clickHandler() {
-    this.props.dispatch(getHeroes());
+    // this.props.dispatch(getHeroes());
   }
 
   render() {
     return (
-      <nav>
-        <li><Link to="/">Go home</Link></li>
-        <li onClick={this.clickHandler}>
-          <Link to="/superheroes">
-            See all Superheroes
-          </Link>
-        </li>
+      <nav className="nav">
+        <ul className="row">
+          <li><Link to="/">Go home</Link></li>
+          <li onClick={this.clickHandler}>
+            <Link to="/superheroes">
+              See all Superheroes
+            </Link>
+          </li>
+        </ul>
       </nav>
     );
   }

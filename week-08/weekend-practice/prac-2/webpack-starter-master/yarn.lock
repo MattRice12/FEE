@@ -1148,6 +1148,10 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
+classnames@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
+
 cli-boxes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-1.0.0.tgz#4fa917c3e59c94a004cd61f8ee509da651687143"
@@ -2249,6 +2253,10 @@ growly@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
 
+hammerjs@^2.0.4:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+
 handle-thing@^1.2.4:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -2975,6 +2983,10 @@ jodid25519@^1.0.0:
   dependencies:
     jsbn "~0.1.0"
 
+jquery@^2.1.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
+
 jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
@@ -3303,6 +3315,14 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
+materialize-css@^0.98.2:
+  version "0.98.2"
+  resolved "https://registry.yarnpkg.com/materialize-css/-/materialize-css-0.98.2.tgz#f9e4239fd27e2a917a0de379d74d508e2d92ec8e"
+  dependencies:
+    hammerjs "^2.0.4"
+    jquery "^2.1.4"
+    node-archiver "^0.3.0"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.16"
   resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.16.tgz#b357fa1ca9faefb8e48d10c14ef2bcb2d9f0a7c9"
@@ -3471,6 +3491,13 @@ natural-compare@^1.4.0:
 negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
+
+node-archiver@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/node-archiver/-/node-archiver-0.3.0.tgz#b9f1afe5006d0bdf29260181833a070978bc6947"
+  dependencies:
+    fstream "^1.0.10"
+    tar "^2.2.1"
 
 node-fetch@^1.0.1:
   version "1.6.3"
@@ -4310,7 +4337,7 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^15.5.3:
+react-dom@^15.4.2, react-dom@^15.5.3:
   version "15.5.3"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.3.tgz#2ee127ce942df55da53111ae303316e68072b5c5"
   dependencies:
@@ -4318,6 +4345,14 @@ react-dom@^15.5.3:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "~15.5.0"
+
+react-materialize@^0.18.1:
+  version "0.18.1"
+  resolved "https://registry.yarnpkg.com/react-materialize/-/react-materialize-0.18.1.tgz#6a9607d61708cfd593a38f6a120fc6c87f9cf51c"
+  dependencies:
+    classnames "^2.2.5"
+    react "^15.4.2"
+    react-dom "^15.4.2"
 
 react-redux@^5.0.4:
   version "5.0.4"
@@ -4359,7 +4394,7 @@ react-test-renderer@^15.5.4:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react@^15.5.3:
+react@^15.4.2, react@^15.5.3:
   version "15.5.3"
   resolved "https://registry.yarnpkg.com/react/-/react-15.5.3.tgz#84055382c025dec4e3b902bb61a8697cc79c1258"
   dependencies:
