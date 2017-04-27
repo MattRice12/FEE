@@ -2,7 +2,6 @@ import api from "../api.js";
 
 export default function deleteVote(band) {
   return function(dispatch) {
-    console.log("band", band);
     return $.ajax({
       type: "DELETE",
       url: `${api.url}/${band.objectId}`,

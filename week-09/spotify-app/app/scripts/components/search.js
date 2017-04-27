@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import searchBand from "../actions/search_band.js";
-import voteBand from "../actions/vote_band.js";
 import SearchForm from "./search_form.js";
 import AllArtists from "./all_artists.js";
+import postVote from "../actions/post_vote.js";
 import deleteVote from "../actions/delete_vote.js";
-import getVotes from "../actions/get_votes.js";
 
 class Search extends React.Component {
   constructor(props) {
@@ -26,16 +25,14 @@ class Search extends React.Component {
   }
 
   handleVote(band) {
-    let allIds = this.props.votes.map(vote => {
-      return vote._id;
-    });
+    let allIds = _.map(this.props.votes, "_id");
 
     if (allIds.indexOf(band.id) >= 0) {
       var bandId = allIds.indexOf(band.id);
       var currentBand = this.props.votes[bandId];
       this.props.dispatch(deleteVote(currentBand));
     } else {
-      this.props.dispatch(voteBand(band));
+      this.props.dispatch(postVote(band));
     }
   }
 

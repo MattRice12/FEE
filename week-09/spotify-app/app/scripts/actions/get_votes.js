@@ -1,4 +1,5 @@
 import api from "../api.js";
+import voteBand from "./vote_band.js";
 
 export default function getVotes() {
   return function(dispatch) {
@@ -10,10 +11,8 @@ export default function getVotes() {
         "secret-key": api.skey
       }
     }).then(response => {
-      console.log(response.data);
       response.data.forEach(band => {
-        console.log(band);
-        dispatch({ type: "VOTE_BAND", band: band });
+        dispatch(voteBand(band));
       });
     });
   };
